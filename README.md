@@ -2,7 +2,7 @@
 
 Control your computer's mouse, volume, and brightness entirely with hand gestures — no physical input device needed. Built with MediaPipe for real-time hand tracking and OpenCV for camera processing.
 
-This project extends the original [Hand-Gesture-Recognition-for-Cursor-Controlling](https://github.com/ahmed-0egy/Hand-Gesture-Recognition-for-Cursor-Controlling) with additional features including on-screen gesture labels, FPS display, screenshot capture, system volume control, and screen brightness control.
+ Made with additional features other than just normal mouse controls, including on-screen gesture labels, FPS display, screenshot capture, system volume control, and screen brightness control.
 
 ---
 
@@ -105,4 +105,4 @@ handgesture-control-mouse/
 
 ## Acknowledgements
 
-Original project by [ahmed-0egy](https://github.com/ahmed-0egy/Hand-Gesture-Recognition-for-Cursor-Controlling). This fork adds gesture labelling, FPS counter, screenshot, volume, and brightness control features.
+Built using MediaPipe, OpenCV, and PyAutoGUI.
