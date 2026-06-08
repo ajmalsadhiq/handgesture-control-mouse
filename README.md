@@ -1,72 +1,108 @@
-# README
-## Hand Gesture Recognition for Controlling Computer's Mouse Cursor
-This is a Python project for controlling a computer's mouse cursor using hand gestures. The program recognizes hand gestures through a webcam using the Mediapipe library and controls the mouse cursor via the PyAutoGUI library.
+# Hand Gesture Control Mouse
 
-The project is divided into two files, `app.py` and `controller.py`. The `app.py` file contains the main program logic while `controller.py` is responsible for handling the mouse cursor movement and click events.
+Control your computer's mouse, volume, and brightness entirely with hand gestures — no physical input device needed. Built with MediaPipe for real-time hand tracking and OpenCV for camera processing.
 
-There is an extra file, `requirements.txt` which you can use to install the libraries required for this project.
+This project extends the original [Hand-Gesture-Recognition-for-Cursor-Controlling](https://github.com/ahmed-0egy/Hand-Gesture-Recognition-for-Cursor-Controlling) with additional features including on-screen gesture labels, FPS display, screenshot capture, system volume control, and screen brightness control.
+
+---
+
+## Features
+
+- **Real-time hand tracking** using MediaPipe
+- **Mouse control** — move, click, right-click, double-click, drag
+- **Scroll and zoom** — scroll up/down, zoom in/out
+- **Screenshot capture** — save a screenshot with a gesture
+- **Volume control** — raise or lower system volume hands-free
+- **Brightness control** — adjust screen brightness with your hand
+- **On-screen FPS counter** — live performance display
+- **On-screen gesture label** — shows the active gesture in real time
+
+---
+
+## Gesture Reference
+
+| Gesture | Action |
+|---|---|
+| Move hand naturally | Move cursor |
+| All fingers up, thumb down | Freeze cursor |
+| Index finger into thumb | Left click |
+| Middle finger into thumb | Right click |
+| Ring finger into thumb | Double click |
+| All fingers down | Drag |
+| Little finger up only (thumb down) | Scroll up |
+| Index finger up only | Scroll down |
+| Index + middle up, spread apart | Zoom in |
+| Index + middle up, pinched together | Zoom out |
+| Little finger up, thumb down | Screenshot |
+| Index + thumb up, hand raised | Volume up |
+| Index + thumb up, hand lowered | Volume down |
+| Index + middle up, thumb down | Brightness control (raise = brighter) |
+
+---
 
 ## Requirements
-#### To run the program, the following libraries are required:<br>
-  - OpenCV<br>
-  - Mediapipe<br>
-  - PyAutoGUI<br>
- 
-#### You can install these libraries using pip:<br>
-  -  `pip install opencv-python mediapipe pyautogui`<br>
-#### Or you can use the following command using pip to avoid any library version issue:<br>
-  - `pip install -r requirements.txt`
 
-## How to Run
-After installing the required libraries, run the `app.py` file in a Python environment with a webcam. The program will start capturing video from the webcam, and the mouse cursor can be controlled using the following hand gestures:
+- Python 3.10
+- Webcam
 
-  - **Cursor moving**: Raise all fingers together and move your hand to move the cursor and control it.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Mouse_moving](https://user-images.githubusercontent.com/129029089/227950094-4dae7a2d-a332-41ad-aa13-a186a5052f60.png)
+---
 
-  - **Cursor freezing**: Close your thumb and Raise all other fingers together freeze the cursor and prevent it from moving.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Mouse_freezing](https://user-images.githubusercontent.com/129029089/227953353-6cb5bfe7-8beb-43df-a4a7-988f43e51c94.png)
+## Installation
 
-  - **Drag and drop**: Close your hand into a fist and move it around to drag and drop objects.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Drag](https://user-images.githubusercontent.com/129029089/227953920-2049922f-d76d-4a3b-b132-d6ff9f234d1e.png)
+```bash
+git clone https://github.com/ajmalsadhiq/handgesture-control-mouse.git
+cd handgesture-control-mouse
+pip install -r requirements.txt
+```
 
-  - **Right-click**: Raise your index finger while keeping the other fingers closed.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Right_click](https://user-images.githubusercontent.com/129029089/227954273-7184fe9b-39b5-4bfc-bc49-2cc9b17f18c7.png)
+---
 
-  - **Left-click**: Raise your middle finger while keeping the other fingers closed.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Left_click](https://user-images.githubusercontent.com/129029089/227954145-e8915010-4a4d-46b1-9e24-5a4c48637b51.png)
+## Usage
 
-  - **Double-click**: Raise your index and middle finger while keeping the other fingers closed.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Double_click](https://user-images.githubusercontent.com/129029089/227954025-6ea2c2bc-4f49-450c-ad50-1d2400a33ea8.png)
+```bash
+python app.py
+```
 
-  - **Scroll up**: Move your index and middle finger towards the screen.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Scrolling_up](https://user-images.githubusercontent.com/129029089/227954370-66157650-1e08-425f-940e-1f35517fd92a.png)
+- A window will open showing your webcam feed with hand landmarks drawn
+- The current gesture and FPS are displayed in the top-left corner
+- Press **ESC** to quit
 
-  - **Scroll down**: Move your index and middle finger away from the screen.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Scrolling_down](https://user-images.githubusercontent.com/129029089/227954424-f6d67430-601f-4238-ab74-7247f8471c6a.png)
+Screenshots are saved to the project folder as `screenshot_<timestamp>.png`.
 
-  - **Zoom in**: Pinch your index finger and thumb together.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Zooming_in](https://user-images.githubusercontent.com/129029089/227954523-286c4c7f-33d5-4ea1-850e-8355021da51d.png)
+---
 
-  - **Zoom out**: Spread your index finger and thumb apart.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![Zooming_out](https://user-images.githubusercontent.com/129029089/227954586-4774546f-2611-482a-a722-52339ab57bb5.png)
+## Dependencies
 
+| Package | Purpose |
+|---|---|
+| `mediapipe` | Hand landmark detection |
+| `opencv-python` | Camera feed and display |
+| `pyautogui` | Mouse and keyboard control |
+| `screen-brightness-control` | Screen brightness adjustment |
 
+---
 
-## Demo
-The repository includes some demo GIFs to help you understand how to use hand gestures to control the mouse. The GIFs show the different hand gestures and their corresponding mouse actions in action, making it easy to follow along and learn how to use the program. To view the demo GIFs, simply navigate to the `demo/` folder in the repository and open the GIFs using any image viewer.<br><br>
-    &nbsp;&nbsp;&nbsp;&nbsp; ![demo](https://user-images.githubusercontent.com/129029089/227974020-4e8c81a3-ef4f-47c8-ab46-f6737d15e4b8.gif)
+## Project Structure
 
+```
+handgesture-control-mouse/
+├── app.py              # Main loop — camera, MediaPipe, display
+├── controller.py       # All gesture detection and system control logic
+├── requirements.txt    # Python dependencies
+└── README.md
+```
 
-Hopefully these demos make it easier for you to get started with the program and learn how to use it effectively. If you have any questions or feedback, feel free to reach out to us!
+---
 
-## How it Works
-The program uses the Mediapipe library to detect hand landmarks from the video captured by the webcam. The `controller.py` file contains the logic for mapping the hand landmarks to specific mouse cursor actions, such as movement and clicking.
+## Notes
 
-## Limitations
-The program currently only supports controlling a single mouse cursor, and it may not work well in low-light conditions. It also doesn't support handling gestures of more than one hand, however this is easy to overcome, may be in comming commits of this project.
+- Works on **Windows only** (volume control uses Windows media keys via PyAutoGUI)
+- Brightness control may require running as administrator on some systems
+- For best results, use in a well-lit environment with a plain background
+- Keep your hand within the camera frame at all times
 
-## License
+---
 
-This project is licensed under the Apache License 2.0. The Apache License 2.0 is a permissive license that allows you to freely use, modify, distribute, and sell the software.<br>
+## Acknowledgements
 
-Feel free to use, modify and distribute the code as you see fit under the terms of the Apache License 2.0. For more information, please refer to the LICENSE file in the root of the project directory.
+Original project by [ahmed-0egy](https://github.com/ahmed-0egy/Hand-Gesture-Recognition-for-Cursor-Controlling). This fork adds gesture labelling, FPS counter, screenshot, volume, and brightness control features.
